@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<style>
+		.passwdinp { display: block; margin: 4px; width: 300px; line-height: 30px; }
+		.passwdbtn { width: 150px; margin: 4px 1px;  height: 40px; background: #000; color: #FFF; font-weight: bold; border: none; }
+	</style>
+</head>
+<body>
+	<input type="button" value="Add" class="passwdbtn" onclick="add();" />
+	<input id="submit" type="button" value="Submit" class="passwdbtn" />
+	<div id="rows">
+		<input type="password" class="passwdinp" autofocus />
+	</div>
+	<input type="button" value="Remove" class="passwdbtn" onclick="remove();" />
+	<input type="button" value="Clear" class="passwdbtn" onclick="clean();" />
+	<script src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script>
+	<script src="password.js"></script>
+	<script>
+		var rows = document.getElementById("rows");
+		new Clipboard('#submit', {
+		    text: function() {
+		        var inputs = rows.getElementsByTagName("input");
+		        var items = [];
+		        for (var i = 0; i < inputs.length; i++) items.push(inputs[i].value);
+		        return password.apply(this, items);
+		    }
+		});
+
+		function add() {
+			var row = document.createElement('input');
+			row.setAttribute("type", "password");
+			row.className = "passwdinp"
+			rows.appendChild(row);
+			row.focus();
+		}
+
+		function remove() {
+		    var inputs = rows.getElementsByTagName("input");
+		    if (inputs.length) rows.removeChild(inputs[inputs.length - 1]);
+		}
+
+		function clean() {
+	        var inputs = rows.getElementsByTagName("input");
+	        for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
+		}
+	</script>
+</body>
+</html>
