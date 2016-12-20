@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Document</title>
+	<title>Password generator</title>
 	<style>
 		.passwdinp { display: block; margin: 4px; width: 300px; line-height: 30px; }
 		.passwdbtn { width: 150px; margin: 4px 1px;  height: 40px; background: #000; color: #FFF; font-weight: bold; border: none; }
@@ -14,7 +14,7 @@
 	<input type="button" value="Add" class="passwdbtn" onclick="add();" />
 	<input id="submit" type="button" value="Submit" class="passwdbtn" />
 	<div id="rows">
-		<input type="password" class="passwdinp" autofocus />
+		<input type="password" class="passwdinp" onkeyup="onKeyUpHandler(event)" autofocus />
 	</div>
 	<input type="button" value="Remove" class="passwdbtn" onclick="remove();" />
 	<input type="button" value="Clear" class="passwdbtn" onclick="clean();" />
@@ -34,7 +34,8 @@
 		function add() {
 			var row = document.createElement('input');
 			row.setAttribute("type", "password");
-			row.className = "passwdinp"
+			row.className = "passwdinp";
+			row.addEventListener("keyup", onKeyUpHandler);
 			rows.appendChild(row);
 			row.focus();
 		}
@@ -47,6 +48,12 @@
 		function clean() {
 	        var inputs = rows.getElementsByTagName("input");
 	        for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
+		}
+
+		function onKeyUpHandler(event) {
+			if(event.keyCode == 13)
+				if (event.shiftKey || event.ctrlKey) document.getElementById("submit").click();
+				else add();
 		}
 	</script>
 </body>
