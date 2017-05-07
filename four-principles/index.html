@@ -1,0 +1,940 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+		<title>Четирите духовни принципа</title>
+		<link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/7.0.0/normalize.css" />
+		<link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet" />
+		<style type="text/css">
+			body {
+				font-family: 'Philosopher', sans-serif;
+				font-size: 16px;
+			}
+
+			.trans {
+				transition: all 0.5s;
+				-webkit-transition: all 0.5s; /* Safari */
+			}
+
+			a {
+				outline: none;
+			}
+
+			input, textarea {
+				outline: none;
+			}
+
+			blockquote {
+				font: 14px/20px italic 'Philosopher', sans-serif;
+				padding: 8px;
+				background-color: #faebbc;
+				border-top: 1px solid #e1cc89;
+				border-bottom: 1px solid #e1cc89;
+				margin: 5px;
+				text-indent: 12px;
+				font-style: italic;
+			}
+
+			table th {
+				font-size: 120%;
+				text-align: center;
+			}
+
+			#welcome {
+				color: #FEFEFE;
+				margin-top:20%;
+				text-shadow: 0 0 1px #FEFEFE, 0 0 0px #FEFEFE;
+				opacity: 1;
+				transition: all 1.5s;
+				-webkit-transition: all 1.5s; /* Safari */
+			}
+
+			#welcome.hidden {
+				opacity: 0;
+				text-shadow: 0 0 40px #FEFEFE, 0 0 40px #FEFEFE;
+			}
+
+			#welcome.hidden * {
+				color: transparent !important;
+			}
+
+			#welcome-message {
+				font-style: italic;
+				text-align: center;
+				font-size: 140%;
+				font-weight: bold;
+			}
+
+			#welcome-more {
+				color: #FEFEFE;
+				margin-left: 69%;
+				font-size: 120%;
+			}
+
+			.light-orb.inner-wrapper {
+				display: inline-block;
+				background-color: #FFF;
+				background: #FFF;
+				padding: 10px;
+				position: relative;
+				left: 0;
+				top: 0;
+				border-radius: 50%;
+				box-shadow: 0 0 20px 10px #FFF;
+			}
+
+			.light-orb.outer-wrapper,
+			.light-orb.inner-wrapper,
+			.light-orb.content {
+				transform: transale3d(0,0,0);
+			}
+
+			.light-orb.inner-wrapper nav {
+				text-align: center;
+				margin-top: 15px;
+				text-transform: uppercase;
+			}
+
+			.light-orb.inner-wrapper nav a {
+				font-weight: bold;
+				color: #777;
+				text-decoration: none;
+				border: 1px solid;
+				padding: 2px 4px;
+			}
+
+			.light-orb.inner-wrapper nav a:hover {
+				color: #333;
+			}
+
+			.light-orb.content {
+				text-align: justify;
+				top: 16%;
+				left: 15.5%;
+				width: auto;
+				height: auto;
+				overflow: hidden;
+				position: absolute;
+			}
+
+			.principle {
+				color: #A00;
+			}
+
+			.subtitle {
+				margin-top: -5px;
+			}
+
+			.hint {
+				font-size: 80%;
+			}
+
+			.hi-image {
+				float: left;
+				margin: 3px 10px;
+			}
+
+			#contact-form {
+				margin: 15px;
+				border: 2px solid #999;
+				border-radius:  50px;
+				padding: 25px 30px;
+				background-color: rgb(249, 249, 249);
+				box-shadow: 0 0 8px #999;
+			}
+
+			#contact-form th, #contact-form td {
+				vertical-align: top;
+			}
+
+			#contact-form th {
+				font-size: 115%;
+				text-align: right;
+			}
+
+			#contact-form h3 {
+				margin: 0;
+			}
+
+			#contact-form .input-box {
+				border: 1px solid #BBBBBB;
+				border-radius: 6px;
+				padding: 2px 4px;
+				background-color: #fff;
+			}
+
+			#contact-form input[type="email"],
+			#contact-form input[type="text"] {
+				font-size: 15px;
+				height: 22px;
+				width: 250px;
+				line-height: 22px;
+			}
+
+			#contact-form select {
+				height: 28px;
+				line-height: 28px;
+				width: 305px;
+				padding: 0 2px;
+				appearance:menu;
+				-moz-appearance:menu;
+				-webkit-appearance:menu;
+			}
+
+			#send {
+				color: #fff;
+				text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+				background-color: #49afcd;
+				background-image: -o-linear-gradient(top,#5bc0de,#2f96b4);
+				background-image: linear-gradient(to bottom,#5bc0de,#2f96b4);
+				background-repeat: repeat-x;
+				border-color: #2f96b4 #2f96b4 #1f6377;
+				border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+				border-radius: 4px;
+				padding: 3px 5px;
+				font-weight: bold;
+			}
+
+			#send:focus {
+				color: yellow;
+			}
+
+			.strip-bg {
+				background:
+				linear-gradient(45deg, #EEE 45px, transparent 45px)64px 64px,
+				linear-gradient(45deg, #EEE 45px, transparent 45px,transparent 91px, rgb(249, 249, 249) 91px, rgb(249, 249, 249) 135px, transparent 135px),
+				linear-gradient(-45deg, #EEE 23px, transparent 23px, transparent 68px,#EEE 68px,#EEE 113px,transparent 113px,transparent 158px,#EEE 158px);
+				background-color:rgb(249, 249, 249);
+				background-size: 128px 128px;
+				}
+			}
+		</style>
+	</head>
+	<body class="trans" style="background-color:rgb(0, 0, 0);">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+
+		<script src="lightorb.js"></script>
+		<div id="welcome">
+			<div id="welcome-message">Както има физически закони, на които се подчинява животът във вселената<br/>така има и духовни принципи, които описват връзката ни с Бога.</div>
+			<div style="margin-top: 45px;"><a id="welcome-more" href="#p1">Научи още</a></div>
+		</div>
+
+		<div id="p1" class="light">
+			<h2 class="principle">
+				1. Светият Бог ни обича и предлага чудесна цел за живота ни.
+				<br/>
+			</h2>
+			<font class="subtitle hint">
+				(Препоръчително е цитатите да се четат в техния контекст в Библията)
+			</font>
+			<h3>
+				Божията любов
+			</h3>
+			<p>
+				“Защото Бог толкова възлюби света, че даде Своя Единороден Син, за да не погине
+				ни един, който вярва в Него, но да има вечен живот” (<a href="http://www.biblegateway.com/passage/?search=John%203:16&version=BULG">Йоан 3:16</a>)
+			</p>
+			<h3>
+				Божията цел
+			</h3>
+			<p>
+				Христос казва : “Аз дойдох да имат живот, и да го имат изобилно" (да живеят пълноценно
+				и смислено) (<a href="http://www.biblegateway.com/passage/?search=John%2010:10&version=BULG">Йоан 10:10</a>)
+			</p>
+			<em>
+				Защо повечето хора не живеят така пълноценно?
+			</em>
+			<nav>
+				<a href="#p2" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="p2" class="light">
+			<h2 class="principle">
+				2. Човекът е грешен и отделен от Бога. Затова не може да познае и изпита Божията любов и цел за живота си.
+				<br/>
+			</h2>
+			<h3>
+				Човекът е грешен
+			</h3>
+			<p>
+				“Понеже всички съгрешиха и не заслужават да се прославят от Бога” (<a href="http://www.biblegateway.com/passage/?search=Romans%203:23&version=BULG">Римляни 3:23</a>).
+				Човекът е създаден да има общение (близка духовна връзка) с Бога, но той избра да върви по собствен, независим от Бога път и общението му с Бога бива прекратено. Тази своеволност се изразява в активно отхвърляне или пасивно безразличие и Библията я нарича "грях".
+			</p>
+			<h3>
+				Човекът е вечно отделен
+			</h3>
+			<p>
+				“Защото заплатата на греха е смърт” (духовна отделеност от Бога) (<a href="http://www.biblegateway.com/passage/?search=Romans%206:23&version=BULG">Римляни 6:23</a>).
+			</p>
+			<p>
+				<img src="law2.gif" class="hi-image" alt="" />
+				<span>
+					Тази схема показва нагледно, че Бог е свят, а човекът - грешен. Между тях съществува огромна бездна. Стрелките показват, че всички опити на човека да достигне до Бога и да живее пълноценно посредством добри дела, спазване на традиции и ритуали, самоусъвършенстване и др. са неуспешни.
+				</span>
+			</p>
+			<em>
+				Третият принцип обяснява единственият начин да поставим мост над бездната…
+			</em>
+			<nav>
+				<a href="#p1" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#p3" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="p3" class="light">
+			<h2 class="principle">
+				3. Исус Христос е единственото разрешение, дадено от Бога на проблема с човешкия грях. Чрез него можем да познаем и изпитаме Божията любов и цел за живота си.
+				<br/>
+			</h2>
+			<h3>
+				Той е умрял вместо нас
+			</h3>
+			<p>
+				"Но Бог препоръчва (изяви) своята към нас любов в това, че когато още бяхме грешници, Христос умря за нас" (<a href="http://www.biblegateway.com/passage/?search=Romans%205:8&version=BULG">Римляни 5:8</a>).
+			</p>
+			<h3>
+				Той е възкръснал от мъртвите
+			</h3>
+			<p>
+				"Христос умря за греховете ни... бе погребан... биде възкресен на третия ден според Писанията... и се  яви на Кифа, после на дванадесетте, след това се яви на повече от петстотин..." (<a href="http://www.biblegateway.com/passage/?search=1%20Corinthians%2015:3-6&version=BULG">1 Коринтяни 15:3-6</a>).
+			</p>
+			<h3>
+				Той е единственият път към Бога
+			</h3>
+			<p>
+				"Исус му казва: Аз съм пътят, истината и животът; никой не дохожда при Отца, освен чрез Мене" (<a href="http://www.biblegateway.com/passage/?search=John%2014:6&version=BULG">Йоан 14:6</a>).
+			</p>
+			<p>
+				<img src="law3.gif" class="hi-image" alt="" />
+				<span>
+					Тази схема показва нагледно как Бог поставя мост над бездната, която ни разделя от Него, като изпраща Своя Син Исус Христос да умре на кръста вмeсто нас, за да понесе наказанието за нашите грехове.
+				</span>
+			</p>
+			<em>
+				<br/><br/><br/>Не е достатъчно само да знаем тези три принципа, нито само да сме съгласни с тях...
+			</em>
+			<nav>
+				<a href="#p2" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#p4" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="p4" class="light">
+			<h2 class="principle">
+				4. Всеки лично трябва да приеме Исус Христос като Спасител и Господ: само тогава можем да познаем и изпитаме Божията любов и цел за живота си.
+				<br/>
+			</h2>
+			<h3>
+				Трябва да приемем Христос
+			</h3>
+			<p>
+				"А на ония, които Го приеха, даде право да станат Божии чада, сиреч на тия, които вярват в Неговото име" (<a href="http://www.biblegateway.com/passage/?search=John%201:12&version=BULG">Йоан 1:12</a>)
+			</p>
+			<h3>
+				Приемаме Христос чрез вяра
+			</h3>
+			<p>
+				"Защото по благодат (милост) сте спасени, чрез вяра, и то не от сами вас; това е дар от Бога; не чрез дела, за да не се похвали никой" (<a href="http://www.biblegateway.com/passage/?search=Ephesians%202:8-9&version=BULG">Ефесяни 2:8-9</a>).
+			</p>
+			<h3>
+				Когато приемем Христос, ние се новораждаме (раждаме се духовно)
+			</h3>
+			<p>
+				(Прочетете Йоан <a href="http://www.biblegateway.com/passage/?search=John+3:1-8;&version=BULG">3:1-8.</a>)
+			</p>
+			<h3>
+				Приемаме Христос с лично решение
+			</h3>
+			<p>
+				Христос казва: "Ето, стоя на вратата и хлопам, ако чуе някой гласа ми и отвори вратата, ще вляза при него" (<a href="http://www.biblegateway.com/passage/?search=Revelation%203:20&version=BULG">Откровение 3:20</a>).
+			</p>
+			<p>
+				Да приемем Христос означава да се обърнем от себе си към Бога (покаяние) и да се доверим на Христос да влезе в живота ни, за да опрости греховете ни и да ни направи такива, каквито искаме да бъдем. Не е достатъчно само да признаваме, че Исус Христос е Божият Син и че е умрял на кръста заради греховете ни, нито само да имаме необичайини религиозни преживявания. Приемането на Исус Христос става с обмислено решение, взето с вяра.
+			</p>
+			<p>
+				Тези два кръга показват два начина на живот:
+			</p>
+			<p>
+				<img src="law4.gif" alt="" />
+			</p>
+			<p>
+				Кой кръг отразява начина ви на живот по-добре?<br/>
+				Кой кръг бихте искали да отразява начина ви наживот?
+			</p>
+			<em>
+				По-нататък се обяснява как можете да приемете Христос:
+			</em>
+			<nav>
+				<a href="#p3" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#s1" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="s1" class="light">
+			<h2 class="principle">
+				Можете да приемете Христос още сега като се помолите с вяра<br/>
+			</h2>
+			<font class="subtitle hint">
+				(Молитвата е разговор с Бога)
+			</font>
+			<p>
+				Бог познава сърцата ни и се интересува не толкова от нашите думи, колкото от отношението и мотивите ни. Ето една примерна молитва:
+			</p>
+			<p>
+				<blockquote>
+					"Господи Исусе, нуждая се от Теб. Благодаря Ти, че умря на кръста заради мен. Моля Те, прости ми греховете. Отварям сърцето си за Теб и Те приемам за мой Спасител и Господ. Благодаря Ти, че опрощаваш греховете ми и че ми даваш вечен живот. Застани начело на живота ми и ме направи такъв, какъвто искаш да бъда! Амин (да бъде)."
+				</blockquote>
+			</p>
+				Тази молитва съответства ли на искреното ви желание?
+			</p>
+			<p>
+				Ако е така, още сега се помолете с нея и Христос ще влезе в живота ви, както е обещал.
+			</p>
+			<h3>
+				Как разбираме, че Христос е в живота ни?
+			</h3>
+			<p>
+				Приехте ли Христос в живота си? Според Неговото обещание в <a href="http://www.biblegateway.com/passage/?search=Revelation%203:20&version=BULG" title="Ето стоя на вратата и хлопам; ако чуе някой гласа Ми и отвори вратата, ще вляза при него и ще вечерям с него, и той с Мене.">Откровение 3:20</a> къде е Той сега по отношение на вас? Христос казва, че ще влезе в живота ни. Той би ли ни подвел? На какво основавате увереността си, че Бог е отговорил на молитвата ви? (На верността на самия Бог и на Неговото Слово)
+			</p>
+			<h3>
+				Библията обещава вечен живот на всички, които приемат Христос
+			</h3>
+			<p>
+				"И свидетелството е това, че Бог ни е дал вечен живот, и че тоя живот е в Сина му. Който има Сина, има тоя живот; който няма Сина, няма тоя живот. Това писах на вас, които вярвате в името на Божия Син, за да знаете, че имате вечен живот" (<a href="http://www.biblegateway.com/passage/?search=1%20John%205:11-13&version=BULG">1 Йоан 5:11-13</a>).
+			</p>
+			<p>
+				Не спирайте да благодарите на Бога, че Христос е в живота ви и че никога няма да ви напусне (<a href="http://www.biblegateway.com/passage/?search=Hebrews%2013:5&version=BULG" title="Не се впримчвайте в сребролюбието; задоволявайте се с това, що имате, защото сам Бог е рекъл: 'Никак няма да те оставя и никак няма да те забравя';">Евреи 13:5</a>). Можете да сте сигурни, че от момента, в който сте отворили сърцето си за Него, Той е заживял във вас и вие имате вечен живот, понеже това е Неговото обещание. Той няма да ви излъже.
+			</p>
+			<em>
+				Не забравяйте и още нещо...
+			</em>
+			<nav>
+				<a href="#p4" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#s2" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="s2" class="light">
+			<h2 class="principle">
+				Не разчитайте на чувствата<br/>
+			</h2>
+			<p>
+				Ние можем винаги да разчитаме на Бога и на обещанията Му от Библията, но не и на чувствата си. Християнинът живее чрез вяра (упование) във верността на самия Бог и на Неговото Слово. Влакът показва нагледно връзката между факта (Бога и Неговото Слово), вярата (нашето упование в Бога и Словото Му) и чувствата (следствие от вярата и покорството ни) (<a href="http://www.biblegateway.com/passage/?search=John%2014:21&version=BULG" title="Който има Моите заповеди и ги пази, той Ме люби; а който Ме люби ще бъде възлюбен от Отца Ми, и Аз ще го възлюбя, и ще явя Себе Си нему.">Йоан 14:21</a>).
+			</p>
+				<img src="fact-faith-feelings.gif" alt="Fact-Faith-Feelings" />
+			</p>
+			<h2 class="principle">
+				Сега, когато вече сте приели Христос
+				<br/>
+			</h2>
+			<h3>
+				Как разбираме, че Христос е в живота ни?
+			</h3>
+			<p>
+				Няколко неща са се случили в момента, в който чрез вяра сте приели Христос:
+			</p>
+			<ol type="1">
+				<li>Христос е влязъл в живота ви (<a href="http://www.biblegateway.com/passage/?search=Revelation%203:20&version=BULG" title="Ето стоя на вратата и хлопам; ако чуе някой гласа Ми и отвори вратата, ще вляза при него и ще вечерям с него, и той с Мене.">Откровение 3:20</a>  ; <a href="http://www.biblegateway.com/passage/?search=Colossians%201:27&version=BULG" title="на която Божията воля беше да яви, какво е между езичниците богатството на славата на тая тайна, сиреч, Христос между вас, надеждата на славата.">Колосяни 1:27</a>).</li>
+				<li>Греховете ви са опростени (<a href="http://www.biblegateway.com/passage/?search=Colossians%201:14&version=BULG" title="В Него имаме изкуплението си, прощението на греховете;">Колосяни 1:14</a>).</li>
+				<li>Станали сте Божие дете (<a href="http://www.biblegateway.com/passage/?search=John%201:12&version=BULG" title="А на ония, които Го приеха, даде право да станат Божии чада, сиреч, на тия, които вярват в Неговото име;">Йоан 1:12</a>).</li>
+				<li>Получили сте вечен живот (<a href="http://www.biblegateway.com/passage/?search=John%205:24&version=BULG" title="Истина, истина ви казвам, който слуша Моето учение, и вярва в Този, Който Ме е пратил, има вечен живот, и няма да дойде на съд, но е преминал от смъртта в живота.">Йоан 5:24</a>).</li>
+				<li>Започнали сте новия живот, за който Бог ви е сътворил (<a href="http://www.biblegateway.com/passage/?search=John%2010:10&version=BULG" title="Аз дойдох за да имат живот, и да го имат изобилно.">Йоан 10:10</a>; <a href="http://www.biblegateway.com/passage/?search=2%20Corinthians%205:17&version=BULG" title="За туй, ако е някой в Христа, той е ново създание; старото премина; ето, [всичко] стана ново.">2 Коринтяни 5:17</a>; <a href="http://www.biblegateway.com/passage/?search=1%20Thessalonians%205:18&version=BULG" title="За всичко благодарете, защото това е Божията воля за вас в Христа Исуса.">1 Солунци 5:18</a>).</li>
+			</ol>
+			<p>
+				Има ли нещо по-чудесно от това - да приемете Исус Христос? Искате ли още сега да благодарите на Бога за всичко, което е направил за вас? Чрез благодарността си към Бога изразяваме своята вяра в Него.
+			</p>
+			<em>
+				За да се радвате на новият си живот в пълнота...
+			</em>
+			<nav>
+				<a href="#s1" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#s3" class="next">Продължи &rarr;</a>
+			</nav>
+		</div>
+
+		<div id="s3" class="light">
+			<h2 class="principle">
+				Растете духовно!<br/>
+			</h2>
+			<p>
+				Духовният растеж е следствие от уповаването в Исус Христос. "Праведният чрез вяра ще живее" (<a href="http://www.biblegateway.com/passage/?search=Galatians%203:11&version=BULG" title="А че никой не се оправдава пред Бога чрез закона, е явно от това, 'че праведния чрез вяра ще живее'">Галатяни 3:11</a>). Когато живеем чрез вяра, ще можем все повече и повече да се уповаваме (доверяваме) на Бога за всяко нещо в живота си и да следваме тези насоки:
+			<table>
+				<tr>
+					<th>Р</th>
+					<td>Разговаряйте с Бога в молитва ежедневно (<a href="http://www.biblegateway.com/passage/?search=John%2015:7&version=BULG" title="Ако пребъдете в Мене и думите Ми пребъдат във вас, искайте каквото и да желаете, и ще ви бъде.">Йоан 15:7</a>).</td>
+				</tr>
+				<tr>
+					<th>А</th>
+					<td>Азбуката на живота е Божието Слово. Четете го всеки ден (<a href="http://www.biblegateway.com/passage/?search=Acts%2017:11&version=BULG" title="И Беряните бяха по-благородни от Солунците, защото приеха учението без всякакъв предразсъдък, и всеки ден изследваха писанията да видят дали това е вярно.">Деяния 17:11</a>). Започнете с Евангелието от Йоан.</td>
+				</tr>
+				<tr>
+					<th>С</th>
+					<td>Станете покорни на Бога (<a href="http://www.biblegateway.com/passage/?search=Matthew%204:19&version=BULG" title="И казва им: Дойдете след Мене, и Аз ще ви направя ловци на човеци.">Матей 4:19</a>; <a href="http://www.biblegateway.com/passage/?search=John%2015:8&version=BULG" title="В това се прославя Отец Ми, да принасяте много плод; и така ще бъдете Мои ученици.">Йоан 15:8</a>).</td>
+				</tr>
+				<tr>
+					<th>Т</th>
+					<td>Търсете случаи да говорите за Христос с думите и делата си (<a href="http://www.biblegateway.com/passage/?search=John%2014:21&version=BULG" title="Който има Моите заповеди и ги пази, той Ме люби; а който Ме люби ще бъде възлюбен от Отца Ми, и Аз ще го възлюбя, и ще явя Себе Си нему.">Йоан 14:21</a>).</td>
+				</tr>
+				<tr>
+					<th>Е</th>
+					<td>Ежедневно му се доверявайте на всяка стъпка от живота си (<a href="http://www.biblegateway.com/passage/?search=1%20Peter%205:7&version=BULG" title="и всяка ваша грижа възложете на Него, защото Той се грижи за вас.">1 Петър 5:7</a>).</td>
+				</tr>
+				<tr>
+					<th>Ж</th>
+					<td>Живейте по Духа. Оставете Светия Дух да дава насоки и сила да живеете и свидетелствате всеки ден (<a href="http://www.biblegateway.com/passage/?search=Galatians%205:16-17&version=BULG" title="Прочее казвам: Ходете по Духа и няма да угаждате на плътските страсти. Защото плътта силно желае противното на Духа, а Духът противното на плътта; понеже те се противят едно на друго, за да можете да правите това, което искате.">Галатяни 5:16-17</a>; <a href="http://www.biblegateway.com/passage/?search=Act%201:8&version=BULG" title="Но ще приемете сила, когато дойде върху вас Светият Дух, и ще бъдете свидетели за мене както в Ерусалим, тъй и в цяла Юдея и Самария, и до края на земята;">Деяния 1:8</a>).</td>
+				</tr>
+			</table>
+			<h2 class="principle">
+				Нуждата от Църква<br/>
+			</h2>
+			<p>
+				Божието Слово ни призовава да не преставаме да се събираме заедно... (<a href="http://www.biblegateway.com/passage/?search=Hebrews%2010:25&version=BULG" title="като не преставаме да се събираме заедно, както някои имат обичай да престават, а да увещаваме един друг, и толкова повече, колкото виждате, че денят наближава.">Евреи 10:25</a>). Няколко главни накуп горят буйно, но ако извадим някоя от тях настрана, тя започва да тлее и угасва. Така е и при общуването ни с другите християни.
+			</p>
+			<p>
+				Ако все още не ходите на църква, не чакайте покана. Добрата църква е тази, в която хората обичат Исус Христос и проповядват Неговото Слово - Библията.
+			</p>
+			<nav>
+				<a href="#s2" class="prev">&larr; Върни се</a>
+				&nbsp;|&nbsp;
+				<a href="#contact-form" class="next">Свържи се с нас &crarr;</a>
+			</nav>
+		</div>
+
+		<div id="contact-form" style="display: none; opacity: 0;">
+			<table>
+			<tbody>
+				<tr>
+					<td><input type="email" class="input-box" id="contact-email" text="" placeholder="Вашата поща" /></td>
+					<td rowspan="3">
+						<textarea class="input-box" id="contact-message" cols="50" rows="10" placeholder="Съобщение"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="text" class="input-box" id="contact-name" text="" placeholder="Вашето име" /></td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Какво искате да ни питате?</h3>
+						<select class="input-box" id="contact-title">
+							<option value="1">Не съм християнин, но имам въпроси</option>
+							<option value="2">Молих се да получа Христос в моя живот</option>
+							<option value="3">Предадох живота си отново на Христос</option>
+							<option value="4">Искам и аз да споделям благата вест</option>
+						</select>&nbsp;&nbsp;&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input id="send" type="button" value="Изпрати" onclick="formCheck();" /></td>
+				</tr>
+			</tbody>
+			</table>
+			<div>
+				<p>
+					<u>За да се свържете директно с нас:</u></p>
+				<p>
+					<strong>GSM</strong>: 0897/62 58 42</p>
+				<p>
+					<strong>E-mail</strong>: <a href="mailto:varna@studentlife.bg">varna@studentlife.bg</a></p>
+				<p>
+					<strong>facebook</strong>: <a href="https://www.facebook.com/groups/208356265901202/">СХД Студентски Живот Варна</a></p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		var orb = {};
+
+$(document).ready(function() {
+  $(".light").each(function() {
+    var id = $(this).attr("id");
+    orb[id] = new LightOrb(this);
+    orb[id].setActive(false);
+  });
+
+  $("#welcome-more").click(function(event) {
+    $("#welcome").addClass("hidden");
+    var ev = event;
+    var pos = $(this).offset();
+    setTimeout(function() {
+      orb["p1"].setActive(true);
+      orb["p1"].animate("expand", {
+        x: ev.pageX,
+        y: ev.pageY,
+        overflow: false
+      });
+      $("#welcome").remove();
+    }, 600);
+  });
+
+  $("#p1 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p1"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p1"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(7, 7, 7)"
+          });
+          orb["p1"].setActive(false);
+          orb["p2"].setActive(true);
+          orb["p2"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p2 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p2"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p2"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(11, 11, 11)"
+          });
+          orb["p2"].setActive(false);
+          orb["p3"].setActive(true);
+          orb["p3"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p2 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p2"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p2"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(7, 7, 7)"
+          });
+          orb["p2"].setActive(false);
+          orb["p1"].setActive(true);
+          orb["p1"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p3 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p3"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p3"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(15, 15, 15)"
+          });
+          orb["p3"].setActive(false);
+          orb["p4"].setActive(true);
+          orb["p4"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p3 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p3"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p3"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(11, 11, 11)"
+          });
+          orb["p3"].setActive(false);
+          orb["p2"].setActive(true);
+          orb["p2"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p4 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p4"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p4"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(19, 19, 19)"
+          });
+          orb["p4"].setActive(false);
+          orb["s1"].setActive(true);
+          orb["s1"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#p4 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["p4"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["p4"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(15, 15, 15)"
+          });
+          orb["p4"].setActive(false);
+          orb["p3"].setActive(true);
+          orb["p3"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#s1 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["s1"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["s1"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(23, 23, 23)"
+          });
+          orb["s1"].setActive(false);
+          orb["s2"].setActive(true);
+          orb["s2"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#s1 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["s1"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["s1"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(19, 19, 19)"
+          });
+          orb["s1"].setActive(false);
+          orb["p4"].setActive(true);
+          orb["p4"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#s2 .next").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["s2"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["s2"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(27, 27, 27)"
+          });
+          orb["s2"].setActive(false);
+          orb["s3"].setActive(true);
+          orb["s3"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#s2 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["s2"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["s2"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(23, 23, 23)"
+          });
+          orb["s2"].setActive(false);
+          orb["s1"].setActive(true);
+          orb["s1"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+
+  $("#s3 .next").click(function(ev) {
+    orb["s3"].setActive(false);
+    $("body").css("background-color", "rgb(249, 249, 249)");
+    setTimeout(function() {
+      $("body").removeClass("trans");
+      $("body").addClass("strip-bg");
+    }, 500);
+    setTimeout(function() {
+      var frm = $("#contact-form");
+      frm.css("display", "inline-block");
+      frm.animate({ opacity: 1 }, 300);
+    }, 400);
+  });
+
+  $("#s3 .prev").click(function(ev) {
+    $("body").css("overflow", "hidden");
+    orb["s3"].animate(
+      "shrink",
+      {
+        center: [ev.pageX, ev.pageY],
+        overflow: false
+      },
+      function() {
+        orb["s3"].animate("leave", function() {
+          $("body").css({
+            overflow: "auto",
+            "background-color": "rgb(23, 23, 23)"
+          });
+          orb["s3"].setActive(false);
+          orb["s2"].setActive(true);
+          orb["s2"].animate("expand", {
+            x: getRandom(0, $(window).width()),
+            y: getRandom(0, $(window).height()),
+            overflow: false
+          });
+        });
+      }
+    );
+  });
+});
+
+function formCheck(form) {
+  var email = $("#contact-email").val(), name = $("#contact-name").val();
+  (title = $("#contact-title option:selected").text()), (text = $(
+    "#contact-message"
+  ).val());
+  console.log(email, title, text);
+  if (
+    !/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+      email
+    )
+  ) {
+    alert("Моля въведете адрес, чрез който да се свържем с вас!");
+    return false;
+  }
+  $.ajax({
+    type: "POST",
+    url: "mail.php",
+    data: { email: email, title: title, text: text, name: name }
+  }).done(function(msg) {
+    if ((msg = "ok")) alert("Съобщението е изпратено успешно!");
+    else
+      alert(
+        "Имаше проблем с изпращенето, моля опитайте по-късно, или ни пишете директно на varna@.studentlife.com"
+      );
+  });
+  return true;
+}
+
+/*$( window ).resize(function() {
+			  for(var o in orb) {
+			  	if(typeof o !== "string") continue;
+			  	orb[o].fitContent();
+			  }
+			});*/
+</script>
+	</body>
+
+</html>
