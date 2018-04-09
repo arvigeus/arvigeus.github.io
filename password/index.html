@@ -22,7 +22,7 @@
 	<script src="password.js"></script>
 	<script>
 		var rows = document.getElementById("rows");
-		new Clipboard('#submit', {
+		new ClipboardJS('#submit', {
 		    text: function() {
 		        var inputs = rows.getElementsByTagName("input");
 		        var items = [];
