@@ -12,24 +12,23 @@
 </head>
 <body>
 	<input type="button" value="Add" class="passwdbtn" onclick="add();" />
-	<input id="submit" type="button" value="Submit" class="passwdbtn" />
+	<input type="button" value="Submit" class="passwdbtn" onclick="submit()" />
 	<div id="rows">
 		<input type="password" class="passwdinp" onkeyup="onKeyUpHandler(event)" autofocus />
 	</div>
 	<input type="button" value="Remove" class="passwdbtn" onclick="remove();" />
 	<input type="button" value="Clear" class="passwdbtn" onclick="clean();" />
-	<script src="https://unpkg.com/clipboard/dist/clipboard.min.js"></script>
+	<script src="polyfill.js"></script>
 	<script src="password.js"></script>
 	<script>
 		var rows = document.getElementById("rows");
-		new ClipboardJS('#submit', {
-		    text: function() {
-		        var inputs = rows.getElementsByTagName("input");
-		        var items = [];
-		        for (var i = 0; i < inputs.length; i++) items.push(inputs[i].value);
-		        return password.apply(this, items);
-		    }
-		});
+
+		function submit() {
+			var inputs = rows.getElementsByTagName("input");
+			var items = [];
+			for (var i = 0; i < inputs.length; i++) items.push(inputs[i].value);
+			navigator.clipboard.writeText(password.apply(this, items));
+		}
 
 		function add() {
 			var row = document.createElement('input');
